@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Json Object Test</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        
+
+
+<h1>What's your favorite sport?</h1>
+<h2>1/28/23 11:30 AM</h2>
+<h3>This is web page is a call to an API built with Azure Functions</h3>
+<h2>It is the updated version. I duplicated the function but in a new App</h2>
+
+
+--------------------------------------------------------------------
+
+<p> Name: <span id="name"></span></p><!-- 4) Updated-->
+<p> Sport: <span id="sport"></span></p> <!-- 5) Updated-->
+
+
+
+<script>
+
+const api_url = 'https://sat-012823.azurewebsites.net/api/HttpTrigger-sat012823?name=Jackie&sport=Soccer'  // 1) update to json function
+async function getsport() // 2) update function name
+    {
+        const response = await fetch(api_url); //ok
+        const data = await response.json(); //ok
+        const {name, sport} = data; //3) not sure how this works but, updated
+        document.getElementById('name').textContent = name; //6) Updated
+        document.getElementById('sport').textContent = sport; //7) Updated
+        console.log(name); //8) Updated
+        console.log(sport); //9) Updated
+    }
+
+    getsport(); // 10) Updated
+
+
+</script>
+
+
+    </body>
+</html>
